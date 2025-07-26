@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>For My Wifey! ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #ffd6e7;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: white;
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    h1 {
+      text-shadow: 1px 1px 2px black;
+      font-size: 40px;
+      z-index: 3;
+      position: relative;
+    }
+
+    .message-box {
+      background-image: url('paper-bg.png');
+      background-size: cover;
+      background-position: bottom center;
+      padding: 60px 40px;
+      border-radius: 20px;
+      max-width: 700px;
+      margin: 40px auto;
+      z-index: 3;
+      position: relative;
+      color: #3a2a1a;
+      font-size: 22px;
+      line-height: 1.8;
+      text-shadow: none;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .message-box p {
+      margin-bottom: 30px;
+    }
+
+    .heart, .flower, .dog, .cat {
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      animation: float 20s infinite linear;
+      opacity: 0.3;
+      z-index: 2;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); }
+      100% { transform: translateY(-100vh); }
+    }
+
+    .small { width: 24px; height: 24px; }
+    .medium { width: 40px; height: 40px; }
+    .large { width: 60px; height: 60px; }
+    .xlarge { width: 100px; height: 100px; }
+    .xxlarge { width: 140px; height: 140px; }
+
+    .photo {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.5;
+    }
+
+    #m1 {
+      width: 300px;
+      left: 12%;
+      top: 250px;
+      transform: rotate(-20deg);
+    }
+
+    #h1 {
+      width: 270px;
+      right: 12%;
+      top: 220px;
+      transform: rotate(35deg);
+    }
+
+    .footer-buffer {
+      height: 180px;
+    }
+
+    .play-button {
+      margin-top: 30px;
+      padding: 14px 30px;
+      background-color: white;
+      color: #ff69b4;
+      border: none;
+      border-radius: 25px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      z-index: 4;
+      position: relative;
+      font-family: 'Quicksand', sans-serif;
+    }
+
+    /* New Styles for functionality */
+    .hidden {
+      display: none;
+    }
+
+    .center-screen {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MUSIC -->
+  <audio id="bg-music" loop>
+    <source src="love.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- DECORATIONS -->
+  <div class="heart xxlarge" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 20%; animation-delay: 0s;"></div>
+  <div class="heart xlarge" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 70%; animation-delay: 1s;"></div>
+  <div class="heart small" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 8%; animation-delay: 2s;"></div>
+  <div class="heart medium" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 22%; animation-delay: 3s;"></div>
+  <div class="heart large" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 48%; animation-delay: 4s;"></div>
+  <div class="heart medium" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 68%; animation-delay: 5s;"></div>
+  <div class="heart small" style="background-image: url('https://cdn-icons-png.flaticon.com/512/833/833472.png'); left: 85%; animation-delay: 6s;"></div>
+
+  <div class="flower small" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png'); left: 15%; animation-delay: 3s;"></div>
+  <div class="flower small" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png'); left: 45%; animation-delay: 4s;"></div>
+  <div class="flower medium" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png'); left: 75%; animation-delay: 5s;"></div>
+
+  <div class="dog medium" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png'); left: 20%; animation-delay: 6s;"></div>
+  <div class="cat small" style="background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png'); left: 65%; animation-delay: 7s;"></div>
+
+  <!-- PHOTOS -->
+  <img src="m1.png" id="m1" class="photo" alt="You">
+  <img src="h1.png" id="h1" class="photo" alt="Her">
+
+  <!-- PLAY BUTTON CENTERED -->
+  <div id="start-button" class="center-screen">
+    <button class="play-button" onclick="startExperience()">▶️ Play Music</button>
+  </div>
+
+  <!-- CONTENT HIDDEN INITIALLY -->
+  <div id="content" class="hidden">
+    <h1>To the Love of My Life 💖</h1>
+    <div class="message-box">
+      <p>Baby, I made this for you and I hope you enjoy it! I know it's not much and you deserve more and I'm sorry!</p>
+      <p>I just wanted to thank you for everything you've ever done for me. You made me feel wanted, loved, appreciated, cared for, and made me the happiest person on earth!!</p>
+      <p>I don't know where life takes us, but I'm ready to go with you. I'm ready to face the challenges that come for us whether it is long distance or parents not accepting. I'm ready to walk this road with you wherever it leads, whenever, wherever, AND FOREVERR!! ❤️</p>
+      <p style="margin-top: 30px; font-weight: bold;">Mahal kita, baby ko. Ikaw ang paborito kong maganda at gusto kitang pakasalan balang araw. 💍</p>
+    </div>
+  </div>
+
+  <div class="footer-buffer"></div>
+
+  <!-- SCRIPT -->
+  <script>
+    function startExperience() {
+      const music = document.getElementById('bg-music');
+      const buttonDiv = document.getElementById('start-button');
+      const content = document.getElementById('content');
+
+      music.play();
+      buttonDiv.classList.add('hidden');
+      content.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
